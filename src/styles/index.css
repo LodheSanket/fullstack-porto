@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-base-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-ink-primary font-body antialiased;
+    /* Faint dot grid across the whole page, echoing the geospatial /
+       mapping work in the resume without being a literal map graphic. */
+    background-image: radial-gradient(
+      rgba(128, 8, 86, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  /* Visible keyboard focus everywhere, styled to match the accent
+     rather than the browser default blue outline. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #4fd8c4;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgba(79, 216, 196, 0.25);
+    color: #e9ecf2;
+  }
+
+  /* Custom scrollbar, subtle and on-theme instead of the OS default */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0d13;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232938;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2f3750;
+  }
+}
+
+@layer components {
+  /* Glass panel used for cards, nav bar, and the hero terminal */
+  .glass {
+    @apply bg-base-surface/70 backdrop-blur-xl border border-base-border;
+  }
+
+  .glass-raised {
+    @apply bg-base-raised/80 backdrop-blur-xl border border-base-border;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl sm:text-4xl font-semibold tracking-tight text-ink-primary;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-signal-teal;
+  }
+
+  .container-px {
+    @apply px-6 sm:px-10 lg:px-16;
+  }
+}
+
+/* Respect users who've asked for less motion at the OS level */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom cursor is desktop-only; on touch devices the native cursor stays */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+}
