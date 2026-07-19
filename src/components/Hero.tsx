@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react'
-import { personalInfo, statCounters } from '@/constants/data'
+import { personalInfo } from '@/constants/data'
 import { useTypewriter } from '@/hooks/useTypewriter'
 import ParticleBackground from './ParticleBackground'
 
