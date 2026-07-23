@@ -203,7 +203,7 @@ export const education: EducationEntry[] = [
   {
     institution: 'Residential Junior College of Science',
     degree: 'Higher Secondary College (HSC)',
-    location: 'Shevgaon, Ahmednagar',
+    location: 'Shevgaon, Ahilyanagar',
     duration: 'Jun 2018 - Mar 2019',
   },
 ]
